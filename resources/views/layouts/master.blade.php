@@ -307,7 +307,9 @@
         <!-- END Page Container -->
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-        <script src="assets/js/oneui.min.js"></script>
+        <script src="js/vendor.js"></script>
+        <script src="js/app.js"></script>
+        
 
         <!-- Page JS Plugins + Page JS Code -->
     </body>
