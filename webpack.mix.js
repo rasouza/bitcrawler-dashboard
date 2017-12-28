@@ -16,7 +16,8 @@ let mix = require('laravel-mix');
 
 mix.styles([
     'resources/assets/css/bootstrap.min.css',
-    'resources/assets/css/oneui.min.css'
+    'resources/assets/css/oneui.min.css',
+    'resources/assets/css/themes/flat.min.css'
 ], 'public/css/all.css')
     .scripts('resources/assets/js/oneui.min.js', 'public/js/vendor.js')
     .js('resources/assets/js/app.js', 'public/js');
