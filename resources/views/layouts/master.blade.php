@@ -39,8 +39,9 @@
         <!-- Page JS Plugins CSS go here -->
 
         <!-- Bootstrap and OneUI CSS framework -->
-        <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
         <link rel="stylesheet" id="css-main" href="{{ asset('css/all.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/plugins/jquery.dataTables.min.css') }}">
+        
 
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
@@ -308,6 +309,8 @@
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
         <script src="{{ asset('js/vendor.js') }}"></script>
+        <script src="{{ asset('js/plugins/jquery.dataTables.min.js') }}"></script>
+        
         <script src="{{ asset('js/app.js') }}"></script>
         
 
