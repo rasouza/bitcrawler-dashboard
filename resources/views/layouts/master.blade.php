@@ -40,8 +40,7 @@
 
         <!-- Bootstrap and OneUI CSS framework -->
         <link rel="stylesheet" id="css-main" href="{{ asset('css/all.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/plugins/jquery.dataTables.min.css') }}">
-        
+        @stack('styles')        
 
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
@@ -69,44 +68,7 @@
         -->
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
             <!-- Side Overlay-->
-            <aside id="side-overlay">
-                <!-- Side Overlay Scroll Container -->
-                <div id="side-overlay-scroll">
-                    <!-- Side Header -->
-                    <div class="side-header side-content">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default pull-right" type="button" data-toggle="layout" data-action="side_overlay_close">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <span class="font-w600 push-10-l">Admin</span>
-                    </div>
-                    <!-- END Side Header -->
-
-                    <!-- Side Content -->
-                    <div class="side-content remove-padding-t">
-                        <!-- Block -->
-                        <div class="block pull-r-l">
-                            <div class="block-header bg-gray-lighter">
-                                <ul class="block-options">
-                                    <li>
-                                        <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                                    </li>
-                                    <li>
-                                        <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
-                                    </li>
-                                </ul>
-                                <h3 class="block-title">Block</h3>
-                            </div>
-                            <div class="block-content">
-                                <p>...</p>
-                            </div>
-                        </div>
-                        <!-- END Block -->
-                    </div>
-                    <!-- END Side Content -->
-                </div>
-                <!-- END Side Overlay Scroll Container -->
-            </aside>
+            @include('subs.sidebar')
             <!-- END Side Overlay -->
 
             <!-- Sidebar -->
@@ -130,25 +92,7 @@
                         <!-- END Side Header -->
 
                         <!-- Side Content -->
-                        <div class="side-content">
-                            <ul class="nav-main">
-                                <li>
-                                    <a class="active" href="start_backend.html"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Dashboard</span></a>
-                                </li>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Header</span></li>
-                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-wrench"></i><span class="sidebar-mini-hide">Dropdown</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="start_backend.html">Link #1</a>
-                                        </li>
-                                        <li>
-                                            <a href="start_backend.html">Link #2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                        @include('subs.nav')
                         <!-- END Side Content -->
                     </div>
                     <!-- Sidebar Content -->
@@ -158,49 +102,7 @@
             <!-- END Sidebar -->
 
             <!-- Header -->
-            <header id="header-navbar" class="content-mini content-mini-full">
-                <!-- Header Navigation Right -->
-                <ul class="nav-header pull-right">
-                    <li>
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-                            <i class="fa fa-tasks"></i>
-                        </button>
-                    </li>
-                </ul>
-                <!-- END Header Navigation Right -->
-
-                <!-- Header Navigation Left -->
-                <ul class="nav-header pull-left">
-                    <li class="hidden-md hidden-lg">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
-                            <i class="fa fa-navicon"></i>
-                        </button>
-                    </li>
-                    <li class="hidden-xs hidden-sm">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
-                            <i class="fa fa-ellipsis-v"></i>
-                        </button>
-                    </li>
-                    <li class="visible-xs">
-                        <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
-                        <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible" type="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </li>
-                    <li class="js-header-search header-search">
-                        <form class="form-horizontal" action="start_backend.html" method="post">
-                            <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
-                                <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
-                                <span class="input-group-addon"><i class="si si-magnifier"></i></span>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-                <!-- END Header Navigation Left -->
-            </header>
+            @include('subs.header')
             <!-- END Header -->
 
             <!-- Main Container -->
@@ -263,11 +165,9 @@
         <!-- END Page Container -->
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
-        <script src="{{ asset('js/vendor.js') }}"></script>
-        <script src="{{ asset('js/plugins/jquery.dataTables.min.js') }}"></script>
-        
+        <script src="{{ asset('js/vendor.js') }}"></script>        
         <script src="{{ asset('js/app.js') }}"></script>
-        
+        @stack('scripts')
 
         <!-- Page JS Plugins + Page JS Code -->
     </body>
