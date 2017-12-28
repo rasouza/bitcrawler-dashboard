@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>OneUI - Admin Dashboard Template &amp; UI Framework</title>
+        <title>BitCrawler Dashboard</title>
 
         <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">
@@ -122,44 +122,7 @@
                             <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
                                 <i class="fa fa-times"></i>
                             </button>
-                            <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
-                            <div class="btn-group pull-right">
-                                <button class="btn btn-link text-gray dropdown-toggle" data-toggle="dropdown" type="button">
-                                    <i class="si si-drop"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-right font-s13 sidebar-mini-hide">
-                                    <li>
-                                        <a data-toggle="theme" data-theme="default" tabindex="-1" href="javascript:void(0)">
-                                            <i class="fa fa-circle text-default pull-right"></i> <span class="font-w600">Default</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="theme" data-theme="assets/css/themes/amethyst.min.css" tabindex="-1" href="javascript:void(0)">
-                                            <i class="fa fa-circle text-amethyst pull-right"></i> <span class="font-w600">Amethyst</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="theme" data-theme="assets/css/themes/city.min.css" tabindex="-1" href="javascript:void(0)">
-                                            <i class="fa fa-circle text-city pull-right"></i> <span class="font-w600">City</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="theme" data-theme="assets/css/themes/flat.min.css" tabindex="-1" href="javascript:void(0)">
-                                            <i class="fa fa-circle text-flat pull-right"></i> <span class="font-w600">Flat</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="theme" data-theme="assets/css/themes/modern.min.css" tabindex="-1" href="javascript:void(0)">
-                                            <i class="fa fa-circle text-modern pull-right"></i> <span class="font-w600">Modern</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="theme" data-theme="assets/css/themes/smooth.min.css" tabindex="-1" href="javascript:void(0)">
-                                            <i class="fa fa-circle text-smooth pull-right"></i> <span class="font-w600">Smooth</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                             <a class="h5 text-white" href="start_backend.html">
                                 <i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">ne</span>
                             </a>
@@ -247,13 +210,15 @@
                     <div class="row items-push">
                         <div class="col-sm-7">
                             <h1 class="page-heading">
-                                Title <small>Subtitle.</small>
+                                @yield('title') <small>@yield('subtitle')</small>
                             </h1>
                         </div>
                         <div class="col-sm-5 text-right hidden-xs">
                             <ol class="breadcrumb push-10-t">
-                                <li>Category</li>
-                                <li><a class="link-effect" href="">Page</a></li>
+                                @section('breadcrumb')
+                                    <li>Category</li>
+                                    <li><a class="link-effect" href="">Page</a></li>
+                                @show
                             </ol>
                         </div>
                     </div>
@@ -262,33 +227,23 @@
 
                 <!-- Page Content -->
                 <div class="content">
-                    <!-- My Block -->
-                    <div class="block">
-                        <div class="block-header">
-                            <ul class="block-options">
-                                <li>
-                                    <button type="button"><i class="si si-settings"></i></button>
-                                </li>
-                                <li>
-                                    <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"></button>
-                                </li>
-                                <li>
-                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                                </li>
-                                <li>
-                                    <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
-                                </li>
-                                <li>
-                                    <button type="button" data-toggle="block-option" data-action="close"><i class="si si-close"></i></button>
-                                </li>
-                            </ul>
-                            <h3 class="block-title">My Block</h3>
+                    @section('content')
+                        <!-- My Block -->
+                        <div class="block">
+                            <div class="block-header">
+                                <ul class="block-options">
+                                    <li>
+                                        <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                    </li>
+                                </ul>
+                                <h3 class="block-title">My Block</h3>
+                            </div>
+                            <div class="block-content">
+                                <p>...</p>
+                            </div>
                         </div>
-                        <div class="block-content">
-                            <p>...</p>
-                        </div>
-                    </div>
-                    <!-- END My Block -->
+                        <!-- END My Block -->
+                    @show
                 </div>
                 <!-- END Page Content -->
             </main>
@@ -297,10 +252,10 @@
             <!-- Footer -->
             <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
                 <div class="pull-right">
-                    Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+                    Crafted with <i class="fa fa-heart text-city"></i> by <a class="font-w600" href="https://rasouza.com.br" target="_blank">R. A. Souza</a>
                 </div>
                 <div class="pull-left">
-                    <a class="font-w600" href="http://goo.gl/6LF10W" target="_blank">OneUI</a> &copy; <span class="js-year-copy"></span>
+                    <a class="font-w600" href="#">BitCrawler</a> &copy; {{ date('Y') }}
                 </div>
             </footer>
             <!-- END Footer -->
